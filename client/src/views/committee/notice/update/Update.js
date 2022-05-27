@@ -3,8 +3,19 @@ import React, { Component } from 'react'
 
 import Link from '@material-ui/core/Link'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
+
+import {
+  CButton,
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CForm,
+  CFormInput,
+  CFormLabel,
+  CFormSelect,
+} from '@coreui/react'
+
 import '../../../../scss/Write.scss'
 
 //function Update(props) {
@@ -70,53 +81,115 @@ class Update extends Component {
     const pname = window.location.href.split('/')
     const category = pname[pname.length - 3]
     return (
-      <div className="root">
-        <Grid container spacing={3}>
-          <Grid item xs={10}>
-            <TextField
-              className="textField"
-              id="title"
-              name="title"
-              label="Title"
-              variant="outlined"
-              value={this.title}
-              onChange={this.handleChange}
-            />
-          </Grid>
-          <Grid item xs={10}>
-            <TextField
-              className="textField"
-              id="writer"
-              name="writer"
-              label="Writer"
-              variant="outlined"
-              value={this.writer}
-              onChange={this.handleChange}
-            />
-          </Grid>
-          <Grid item xs={10}>
-            <TextField
-              className="textField"
-              id="body"
-              name="body"
-              label="Body"
-              multiline
-              rows={15}
-              variant="outlined"
-              value={this.body}
-              onChange={this.handleChange}
-            />
-          </Grid>
-          <Grid item xs={10}>
-            <Link href={`/#/committee/` + category + `/read/${this.state.num}`}>
-              <Button variant="outlined">수정취소</Button>
-            </Link>
-            <Button variant="outlined" onClick={this.postUpdate}>
-              전송하기
-            </Button>
-          </Grid>
-        </Grid>
-      </div>
+      <CCol xs={12}>
+        <CCard className="mb-4">
+          <CCardHeader id="boardLabel">
+            <strong>글 수정하기</strong>
+          </CCardHeader>
+          <CCardBody>
+            <CForm>
+              <CFormLabel id="formLabel">제목</CFormLabel>
+              <div className="mb-3">
+                <CFormInput
+                  className="textField"
+                  id="title"
+                  name="title"
+                  variant="outlined"
+                  value={this.state.title}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <CFormLabel id="formLabel">작성자</CFormLabel>
+              <div className="mb-3">
+                <CFormInput
+                  className="textField"
+                  id="author"
+                  name="writer"
+                  variant="outlined"
+                  value={this.state.writer}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <CFormLabel id="formLabel">내용</CFormLabel>
+              <div className="mb-3">
+                <TextField
+                  className="textField"
+                  id="body"
+                  name="body"
+                  multiline
+                  rows={15}
+                  variant="outlined"
+                  value={this.state.body}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="mb-3">
+                <CFormLabel id="formLabel" htmlFor="formFile">
+                  첨부파일
+                </CFormLabel>
+                <CFormInput type="file" id="formFile" />
+              </div>
+              <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                <Link href={`/#/committee/` + category + `/read/${this.state.num}`}>
+                  <CButton color="dark" variant="outlined">
+                    취소
+                  </CButton>
+                </Link>
+                <CButton color="dark" onClick={this.postUpdate}>
+                  수정
+                </CButton>
+              </div>
+            </CForm>
+          </CCardBody>
+        </CCard>
+      </CCol>
+      // <div className="root">
+      //   <Grid container spacing={3}>
+      //     <Grid item xs={10}>
+      //       <TextField
+      //         className="textField"
+      //         id="title"
+      //         name="title"
+      //         label="Title"
+      //         variant="outlined"
+      //         value={this.title}
+      //         onChange={this.handleChange}
+      //       />
+      //     </Grid>
+      //     <Grid item xs={10}>
+      //       <TextField
+      //         className="textField"
+      //         id="writer"
+      //         name="writer"
+      //         label="Writer"
+      //         variant="outlined"
+      //         value={this.writer}
+      //         onChange={this.handleChange}
+      //       />
+      //     </Grid>
+      //     <Grid item xs={10}>
+      //       <TextField
+      //         className="textField"
+      //         id="body"
+      //         name="body"
+      //         label="Body"
+      //         multiline
+      //         rows={15}
+      //         variant="outlined"
+      //         value={this.body}
+      //         onChange={this.handleChange}
+      //       />
+      //     </Grid>
+      //     <Grid item xs={10}>
+      //       <Link href={`/#/committee/` + category + `/read/${this.state.num}`}>
+      //         <Button variant="outlined">수정취소</Button>
+      //       </Link>
+      //       <Button variant="outlined" onClick={this.postUpdate}>
+      //         전송하기
+      //       </Button>
+      //     </Grid>
+      //   </Grid>
+      // </div>
     )
   }
 }
