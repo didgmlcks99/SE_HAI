@@ -93,6 +93,7 @@ const routes = [
   { path: '/committee/inquiry/update/:postid', exact: true, name: 'Inquiry Update', element: InquiryUpdate },
   { path: '/committee/inquiry/write', exact: true, name: 'Inquiry Write', element: InquiryWrite },
   // institute
+
   { path: '/institute/introduce/intromain/:inst_id', exact: true, name: 'Intromain', element: Intromain},
   { path: '/institute/introduce/write', exact: true, name: 'Introwrite', element: Introwrite},
 
