@@ -38,22 +38,31 @@ app.listen(3001, () => {
 //     })
 // });
 
-// app.get('/api/get_depts', (req, res) => {
-//     const sqlSelect = "SELECT dept_name FROM departments ORDER BY dept_name";
+app.get('/api/get_depts', (req, res) => {
+    const sqlSelect = "SELECT dept_name FROM departments WHERE num != 14 ORDER BY num";
 
-//     db.query(sqlSelect, (err, result) => {
-//         res.send(result);
-//     })
-// });
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    })
+});
 
 
-// app.get('/api/get_insts', (req, res) => {
-//     const sqlSelect = "SELECT * FROM institutes ORDER BY dept_name";
+app.get('/api/get_insts', (req, res) => {
+    const sqlSelect = "SELECT inst_id, name, x.dept_name, num FROM institutes as x, departments as y WHERE x.dept_name = y.dept_name and num != 14 ORDER BY num";
 
-//     db.query(sqlSelect, (err, result) => {
-//         res.send(result);
-//     })
-// });
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    })
+});
+
+app.get('/api/get_one_inst/:inst_id', (req, res) => {
+    const inst_id = req.params.inst_id;
+    const sqlSelect = "SELECT * FROM institutes where inst_id = ?;";
+
+    db.query(sqlSelect, inst_id, (err, result) => {
+        res.send(result);
+    })
+});
 
 
 // 확정 해당 페이지 위치에 따라 카테고리 분류하여 디비에 정보 입력
@@ -73,7 +82,7 @@ app.post('/api/insert_post', (req, res) => {
 app.get('/api/get_posts/:category', (req, res) => {
     const category = req.params.category;
 
-    const sqlSelect = "SELECT * FROM posts WHERE category like ?;";
+    const sqlSelect = "SELECT * FROM posts WHERE category like ? ORDER BY num DESC;";
 
     db.query(sqlSelect, category, (err, result) => {
         res.send(result);
