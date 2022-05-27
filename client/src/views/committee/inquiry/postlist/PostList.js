@@ -35,6 +35,7 @@ class PostList extends Component {
       .then((data) => {
         this.setState({
           boards: data.map((value) => {
+            const date = value.date.split('T')
             return (
               <CTableRow key={value.num}>
                 <CTableHeaderCell scope="row">{value.num}</CTableHeaderCell>
@@ -48,7 +49,7 @@ class PostList extends Component {
                   </CNavLink>
                 </CTableDataCell>
                 <CTableDataCell className="right">{value.writer}</CTableDataCell>
-                <CTableDataCell className="right">{value.date}</CTableDataCell>
+                <CTableDataCell className="right">{date[0]}</CTableDataCell>
               </CTableRow>
             )
           }),
@@ -104,17 +105,6 @@ class PostList extends Component {
                 </CTable>
               </CCard>
             </CCol>
-            <CPagination align="center" aria-label="Page navigation example">
-              <CPaginationItem aria-label="Previous" disabled>
-                <span aria-hidden="true">&laquo;</span>
-              </CPaginationItem>
-              <CPaginationItem active>1</CPaginationItem>
-              <CPaginationItem>2</CPaginationItem>
-              <CPaginationItem>3</CPaginationItem>
-              <CPaginationItem aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </CPaginationItem>
-            </CPagination>
           </CCardBody>
         </CCard>
       </CCol>

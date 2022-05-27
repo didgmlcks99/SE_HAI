@@ -70,12 +70,6 @@ class Write extends Component {
           </CCardHeader>
           <CCardBody>
             <CForm>
-              <CFormSelect className="bottom-margin" aria-label="Default select example">
-                <option>게시판을 선택해주세요</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </CFormSelect>
               <CFormLabel id="formLabel">제목</CFormLabel>
               <div className="mb-3">
                 <CFormInput
@@ -107,12 +101,6 @@ class Write extends Component {
                   variant="outlined"
                   onChange={this.handleChange}
                 />
-              </div>
-              <div className="mb-3">
-                <CFormLabel id="formLabel" htmlFor="formFile">
-                  첨부파일
-                </CFormLabel>
-                <CFormInput type="file" id="formFile" />
               </div>
               <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                 <Link href={`#/committee/` + category}>

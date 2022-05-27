@@ -33,6 +33,8 @@ class Intromain extends Component {
   }
 
   render() {
+    const pname = window.location.href.split('/')
+    const name = pname[pname.length - 1]
     return (
       <>
         <CCol xs={12}>
@@ -40,7 +42,7 @@ class Intromain extends Component {
             <CCardHeader id="boardLabel">
               <CRow>
                 <CCol xs={6}>
-                  <strong>환영합니다. 시선을 소개합니다!</strong>
+                  <strong>{name} 소개게시판</strong>
                 </CCol>
                 <CCol xs={6}>
                   <Link href={`#/institute/introduce/write`}>
