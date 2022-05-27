@@ -1,0 +1,59 @@
+// Here you can add other styles
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    color: white !important;
+    margin-bottom: 0;
+    :hover {
+        color:white !important;
+    }
+  }
+
+.mainImage {
+    text-align: center;
+    width: 1125px;
+    height: 380px;
+    object-fit: fill;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+#boardLabel {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(62, 74, 92);
+}
+.bottom-margin{
+    margin-bottom: 1em;
+}
+
+#table-component{
+    color: black !important;
+    padding: 0;
+    margin: 0;
+    :hover {
+        color:white !important;
+    }
+}
+
+#font-size-smaller{
+    font-size: 14px;
+}
+
+#poster{
+    width: 525px;
+}
+
+#text{
+    white-space: pre-wrap;
+}
+
+p {
+    margin:0;
+}
