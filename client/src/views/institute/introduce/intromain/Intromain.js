@@ -4,6 +4,11 @@ import Link from '@material-ui/core/Link'
 import { CButton, CCard, CRow, CCardBody, CCardHeader, CCol } from '@coreui/react'
 
 class Intromain extends Component {
+  state = {
+    value: '',
+    inst_data: {},
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -11,7 +16,6 @@ class Intromain extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    console.log(this.name)
   }
 
   handleChange(event) {
@@ -24,15 +28,29 @@ class Intromain extends Component {
   }
 
   componentDidMount() {
-    // fetch('http://localhost:3000/#/list')
-    fetch('http://localhost:3000/#/institute/introduce')
-      .then((res) => res.json())
+    const pname = window.location.href.split('/')
+    const instId = pname[pname.length - 1]
+
+    // fetch('http://localhost:3000/#/institute/introduce')
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     this.setState({ boards: data })
+    //   })
+
+    fetch(`http://localhost:3001/api/get_one_inst/${instId}`)
+      .then((response) => response.json())
       .then((data) => {
-        this.setState({ boards: data })
+        this.setState({
+          inst_data: data[0],
+        })
       })
   }
 
   render() {
+    const { inst_data } = this.state
+
+    console.log(inst_data)
+
     return (
       <>
         <CCol xs={12}>
@@ -40,7 +58,7 @@ class Intromain extends Component {
             <CCardHeader id="boardLabel">
               <CRow>
                 <CCol xs={6}>
-                  <strong>환영합니다. 시선을 소개합니다!</strong>
+                  <strong>{`환영합니다.소개합니다!`}</strong>
                 </CCol>
                 <CCol xs={6}>
                   <Link href={`#/institute/introduce/write`}>

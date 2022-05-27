@@ -70,7 +70,7 @@ const NavBar = () => {
             {
               component: CNavItem,
               name: 'Introduction',
-              to: '/institute/introduce/intromain',
+              to: '/institute/introduce/intromain/' + val.inst_id,
             },
             {
               component: CNavItem,

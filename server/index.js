@@ -55,6 +55,15 @@ app.get('/api/get_insts', (req, res) => {
     })
 });
 
+app.get('/api/get_one_inst/:inst_id', (req, res) => {
+    const inst_id = req.params.inst_id;
+    const sqlSelect = "SELECT * FROM institutes where inst_id = ?;";
+
+    db.query(sqlSelect, inst_id, (err, result) => {
+        res.send(result);
+    })
+});
+
 
 // 확정 해당 페이지 위치에 따라 카테고리 분류하여 디비에 정보 입력
 app.post('/api/insert_post', (req, res) => {
