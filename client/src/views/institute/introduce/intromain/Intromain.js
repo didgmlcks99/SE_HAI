@@ -36,6 +36,7 @@ class Intromain extends Component {
     //   .then((data) => {
     //     this.setState({ boards: data })
     //   })
+    // fdsjsdfkldsf
 
     fetch(`http://localhost:3001/api/get_one_inst/${instId}`)
       .then((response) => response.json())
