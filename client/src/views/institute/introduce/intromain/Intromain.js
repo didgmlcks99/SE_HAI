@@ -51,7 +51,6 @@ class Intromain extends Component {
     const { inst_data } = this.state
 
     console.log(inst_data)
-
     return (
       <>
         <CCol xs={12}>
