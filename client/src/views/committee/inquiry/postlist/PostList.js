@@ -8,6 +8,7 @@ import {
   CCardBody,
   CCardHeader,
   CCol,
+  CRow,
   CTable,
   CTableBody,
   CTableDataCell,
@@ -62,7 +63,20 @@ class PostList extends Component {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader id="boardLabel">
-            <strong>공지게시판</strong>
+            <CRow>
+              <CCol xs={6}>
+                <strong>문의게시판</strong>
+              </CCol>
+              <CCol xs={6}>
+                <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <Link to={`/committee/` + category + `/write`}>
+                    <CButton color="primary" variant="outline">
+                      글쓰기
+                    </CButton>
+                  </Link>
+                </div>
+              </CCol>
+            </CRow>
           </CCardHeader>
           <CCardBody>
             <CCol xs={12}>
@@ -90,14 +104,6 @@ class PostList extends Component {
                 </CTable>
               </CCard>
             </CCol>
-
-            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-              <Link to={`/committee/` + category + `/write`}>
-                <CButton color="primary" variant="outline">
-                  글쓰기
-                </CButton>
-              </Link>
-            </div>
             <CPagination align="center" aria-label="Page navigation example">
               <CPaginationItem aria-label="Previous" disabled>
                 <span aria-hidden="true">&laquo;</span>
