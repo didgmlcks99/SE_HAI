@@ -4,6 +4,7 @@ import Link from '@material-ui/core/Link'
 import { CButton, CCard, CRow, CCardBody, CCardHeader, CCol } from '@coreui/react'
 
 class Intromain extends Component {
+  name = '아무개'
   state = {
     value: '',
     inst_data: {},
@@ -44,13 +45,17 @@ class Intromain extends Component {
         this.setState({
           inst_data: data[0],
         })
+        console.log(data[0].name + '!!!')
+        this.name = data[0].name
+        console.log(this.name + '@@@')
+        this.render()
       })
   }
 
   render() {
     const { inst_data } = this.state
 
-    console.log(inst_data)
+    console.log(this.name + '???')
     return (
       <>
         <CCol xs={12}>
