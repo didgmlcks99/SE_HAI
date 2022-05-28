@@ -37,8 +37,9 @@ const NavBar = () => {
       ],
     },
     {
-      component: CNavTitle,
+      component: CNavItem,
       name: '학회',
+      to: '/dashboard',
     },
   ]
 

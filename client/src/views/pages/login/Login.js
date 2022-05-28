@@ -55,7 +55,9 @@ const Login = () => {
                     <CRow>
                       <CCol xs={6}>
                         <CButton color="primary" className="px-4">
-                          Login
+                          <CNavLink id="log" to="/dashboard" component={NavLink}>
+                            Login
+                          </CNavLink>
                         </CButton>
                       </CCol>
                       <CCol xs={6} className="text-right">
