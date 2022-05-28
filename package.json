@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/didgmlcks99/SE_HAI/issues"
   },
-  "homepage": "https://github.com/didgmlcks99/SE_HAI#readme"
+  "homepage": "https://github.com/didgmlcks99/SE_HAI#readme",
+  "devDependencies": {
+    "web-vitals": "^2.1.4"
+  }
 }
